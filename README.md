@@ -1,4 +1,4 @@
-# milt-kokuji
+# mlit-kokuji
 
 [国交省のWebサイト](https://www.mlit.go.jp/notice/)において、Excelファイル・PDFファイルにて配布されている告示一覧を用いて、告示を検索し表示するCLIツールです。告示番号1234には、
 
@@ -17,14 +17,14 @@
 パッケージマネージャーの[Homebrew](https://brew.sh/index_ja)を用いてインストールします。
 
 ```sh
-brew tap ryuhey0123/mikokuji
-brew install mikokuji
+brew tap ryuhey0123/mlkokuji
+brew install mlkokuji
 ```
 
 使用前に下記のコマンドを実行して、キャッシュファイルをアップデートしてください。
 
 ```sh
-mikokuji update
+mlkokuji update
 ```
 
 
@@ -34,13 +34,13 @@ mikokuji update
 検索対象の告示番号をコマンド `get` に続けて入力します。
 
 ```sh
-mikokuji get 593
+mlkokuji get 593
 ```
 
 検索結果一覧が表示されるので、矢印キーで選択し`Enter`キーを入力すると規定のブラウザでリンクを開きます。
 
 ```sh
-$ mikokuji get 593
+$ mlkokuji get 593
 Found some results. Please select yours.
 [?] : 建築基準法施行令第三十六条の二第五号の国土交通大臣が指定する建築物を定める件
  > 建築基準法施行令第三十六条の二第五号の国土交通大臣が指定する建築物を定める件
@@ -66,15 +66,15 @@ Found some results. Please select yours.
 環境変数を変更することで、キャッシュディレクトリの変更が可能です。変更を永続的にするためには、`.zshrc`等に記載してください。
 
 ```sh
-export MIKOKUJI_CACHE_DIR='path/to/dir'
+export MLKOKUJI_CACHE_DIR='path/to/dir'
 ```
 
-デフォルト値は`$HOME/.cache/mikokuji`となっています。
+デフォルト値は`$HOME/.cache/mlkokuji`となっています。
 
 設定した環境変数を削除して、デフォルト値に戻すには、
 
 ```sh
-unset MIKOKUJI_CACHE_DIR
+unset MLKOKUJI_CACHE_DIR
 ```
 
 としてください。
