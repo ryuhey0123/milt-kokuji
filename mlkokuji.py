@@ -18,6 +18,7 @@ INDEX_PAGE = '/notice/index.html'
 HEADER_ROW = 2  # エクセルファイルのヘッダー行を指定
 
 _DEFAULT_CACHE_DIR = os.path.join(os.getenv('HOME'), '.cache/mlkokuji')
+_MLKOKUJI_CACHE_DIR = "MLKOKUJI_CACHE_DIR"
 
 
 class Header:
@@ -40,7 +41,7 @@ def cmd():
 def get(number):
     """告示を検索します。検索する告示番号を数字で入力してください"""
 
-    user_cache_dir = os.getenv('MLKOKUJI_CACHE_DIR')
+    user_cache_dir = os.getenv(_MLKOKUJI_CACHE_DIR)
     cache_dir = user_cache_dir if user_cache_dir is not None else _DEFAULT_CACHE_DIR
     caches = glob.glob(cache_dir + '/**/*.xlsx', recursive=True)
 
@@ -95,7 +96,7 @@ def update(default):
         click.echo('Exist not one .xlsx files. Abort refresh.')
         return 0
 
-    cache_dir = os.getenv('MLKOKUJI_CACHE_DIR') if not default else _DEFAULT_CACHE_DIR
+    cache_dir = os.getenv(_MLKOKUJI_CACHE_DIR) if not default else _DEFAULT_CACHE_DIR
     cache = (cache_dir if cache_dir is not None else _DEFAULT_CACHE_DIR) + xlsx_links[0]
 
     os.makedirs(os.path.dirname(cache), exist_ok=True)
@@ -122,7 +123,7 @@ def update(default):
 def clean():
     """キャッシュをゴミ箱に移動します"""
 
-    user_cache_dir = os.getenv('MLKOKUJI_CACHE_DIR')
+    user_cache_dir = os.getenv(_MLKOKUJI_CACHE_DIR)
 
     if user_cache_dir is not None:
         if os.path.exists(user_cache_dir):
