@@ -1,0 +1,26 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+flake8 = "*"
+autopep8 = "*"
+pyinstaller = "*"
+
+[packages]
+requests = "*"
+beautifulsoup4 = "*"
+chardet = "*"
+pandas = "*"
+xlrd = "*"
+kanjize = "*"
+inquirer = "*"
+click = "*"
+send2trash = "*"
+
+[requires]
+python_version = "3.8"
+
+[scripts]
+build = "pyinstaller mikokuji.py --onefile"
